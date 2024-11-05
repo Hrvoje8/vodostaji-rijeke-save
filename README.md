@@ -45,3 +45,26 @@ Hrvatski
   - **brzina**: Brzina vjetra u m/s
 - **oborine**: Količina oborina u milimetrima
 - **stanje_vremena**: Opis stanja vremena (npr. Vedro, Oblačno, itd.)
+
+### JSON Schema
+
+Skup podataka dolazi s JSON Schemom (`schema.json`) koja pruža strojno čitljivu strukturu podataka. Ova schema olakšava validaciju podataka i osigurava konzistentnost. Ključni elementi unutar scheme uključuju:
+
+- **$schema**: Definira standard koji se koristi za JSON Schemu.
+- **$id**: Jedinstveni identifikator za schemu.
+- **title** i **description**: Naslov i opis skupa podataka.
+- **type**: Navodi da je skup podataka niz objekata.
+- **properties**: Popisuje svaki atribut u skupu podataka, uključujući tip podatka, naslov i opis za svako polje:
+  - **datum**: Datum mjerenja u formatu `YYYY-MM-DD`.
+  - **vrijeme**: Vrijeme mjerenja u formatu `HH:MM`.
+  - **stanica**: Naziv lokacije gdje je mjerenje obavljeno.
+  - **vodostaj**: Visina vodostaja u centimetrima u odnosu na referentnu točku.
+  - **temperatura_zraka**: Temperatura zraka u stupnjevima Celzijusa.
+  - **vlaznost**: Vlažnost zraka u postocima.
+  - **tlak_zraka**: Tlak zraka u hPa.
+  - **vjetar**: Ugniježđeni JSON objekt sa:
+    - **smjer**: Smjer vjetra.
+    - **brzina**: Brzina vjetra u m/s.
+  - **oborine**: Količina oborina u milimetrima.
+  - **stanje_vremena**: Opis stanja vremena (npr. Vedro, Oblačno).
+

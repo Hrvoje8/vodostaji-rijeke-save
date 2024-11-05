@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "default": [],
+  "title": "Root Schema",
+  "items": {
+    "type": "object",
+    "title": "A Schema",
+    "required": [
+      "id",
+      "datum",
+      "vrijeme",
+      "stanica",
+      "vodostaj",
+      "temperatura_zraka",
+      "vlaznost",
+      "tlak_zraka",
+      "oborine",
+      "stanje_vremena",
+      "vjetar"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "title": "The id Schema",
+        "examples": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "datum": {
+        "type": "string",
+        "title": "The datum Schema",
+        "examples": [
+          "2024-10-22",
+          "2024-10-23"
+        ]
+      },
+      "vrijeme": {
+        "type": "string",
+        "title": "The vrijeme Schema",
+        "examples": [
+          "11:00:00",
+          "14:00:00",
+          "18:00:00",
+          "04:00:00"
+        ]
+      },
+      "stanica": {
+        "type": "string",
+        "title": "The stanica Schema",
+        "examples": [
+          "Kobaš",
+          "Zagreb",
+          "Požega",
+          "Bjelovar"
+        ]
+      },
+      "vodostaj": {
+        "type": "number",
+        "title": "The vodostaj Schema",
+        "examples": [
+          312.00,
+          313.00,
+          316.00,
+          130.00,
+          164.00,
+          191.00,
+          12.00,
+          22.00
+        ]
+      },
+      "temperatura_zraka": {
+        "type": "number",
+        "title": "The temperatura_zraka Schema",
+        "examples": [
+          10.60,
+          21.00,
+          18.70,
+          18.90,
+          16.90,
+          9.50,
+          20.90,
+          21.40,
+          19.00,
+          14.60
+        ]
+      },
+      "vlaznost": {
+        "type": "integer",
+        "title": "The vlaznost Schema",
+        "examples": [
+          76,
+          49,
+          57,
+          70,
+          84,
+          94,
+          81,
+          58,
+          72,
+          82
+        ]
+      },
+      "tlak_zraka": {
+        "type": "integer",
+        "title": "The tlak_zraka Schema",
+        "examples": [
+          1029,
+          1027,
+          1028,
+          1031,
+          1032
+        ]
+      },
+      "oborine": {
+        "type": "number",
+        "title": "The oborine Schema",
+        "examples": [
+          0.00
+        ]
+      },
+      "stanje_vremena": {
+        "type": "string",
+        "title": "The stanje_vremena Schema",
+        "examples": [
+          "Vedro",
+          "Oblačno",
+          "Pretežno oblačno"
+        ]
+      },
+      "vjetar": {
+        "type": "object",
+        "title": "The vjetar Schema",
+        "required": [
+          "smjer",
+          "brzina"
+        ],
+        "properties": {
+          "smjer": {
+            "type": "string",
+            "title": "The smjer Schema",
+            "examples": [
+              "Jugozapad",
+              "Istok",
+              "Sjeveroistok",
+              "Jug",
+              "Sjever"
+            ]
+          },
+          "brzina": {
+            "type": "string",
+            "title": "The brzina Schema",
+            "examples": [
+              "1.00",
+              "0.60",
+              "1.10",
+              "1.30",
+              "0.40",
+              "0.90",
+              "0.30",
+              "1.60"
+            ]
+          }
+        },
+        "examples": [{
+          "smjer": "Jugozapad",
+          "brzina": "1.00"
+        },
+          {
+            "smjer": "Istok",
+            "brzina": "0.60"
+          },
+          {
+            "smjer": "Sjeveroistok",
+            "brzina": "1.10"
+          },
+          {
+            "smjer": "Jug",
+            "brzina": "1.00"
+          },
+          {
+            "smjer": "Sjever",
+            "brzina": "1.30"
+          },
+          {
+            "smjer": "Sjeveroistok",
+            "brzina": "0.40"
+          },
+          {
+            "smjer": "Istok",
+            "brzina": "1.00"
+          },
+          {
+            "smjer": "Jug",
+            "brzina": "0.90"
+          },
+          {
+            "smjer": "Sjeveroistok",
+            "brzina": "0.30"
+          },
+          {
+            "smjer": "Sjeveroistok",
+            "brzina": "1.60"
+          }]
+      }
+    }
+  }
+}
