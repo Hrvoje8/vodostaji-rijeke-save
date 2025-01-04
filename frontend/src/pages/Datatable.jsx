@@ -13,8 +13,9 @@ const Datatable = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:8080/api/vodostaji");
-                setVodostaji(response.data);
-                setFilteredVodostaji(response.data);
+                const data = response.data.response;
+                setVodostaji(data);
+                setFilteredVodostaji(data);
             } catch (err) {
                 setError("Neuspjelo dohvaćanje podataka");
             }
@@ -214,7 +215,7 @@ const Datatable = () => {
                 </table>
             </div>
             <Link to="/" className="mt-12 px-4 py-2 bg-blue-600 rounded-xl text-white">
-                Back To Home Page
+                Natrag na početnu
             </Link>
         </div>
     );
