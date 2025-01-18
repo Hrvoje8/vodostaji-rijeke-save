@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Datatable = () => {
     const [vodostaji, setVodostaji] = useState([]);
@@ -9,20 +10,38 @@ const Datatable = () => {
     const [filterField, setFilterField] = useState("all");
     const [error, setError] = useState(null);
 
+    // Auth0 hook za dohvaćanje tokena
+    const { getAccessTokenSilently } = useAuth0();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/vodostaji");
+                // Dohvaćanje tokena iz Auth0
+                const tokenResponse = await getAccessTokenSilently();
+
+                // Provjera ako `tokenResponse` ima access_token
+                const accessToken = tokenResponse?.access_token || tokenResponse;
+
+                console.log(accessToken);
+
+                // Slanje zahtjeva s Authorization headerom
+                const response = await axios.get("http://localhost:8080/api/protected/vodostaji", {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
+
                 const data = response.data.response;
                 setVodostaji(data);
                 setFilteredVodostaji(data);
             } catch (err) {
+                console.error(err);
                 setError("Neuspjelo dohvaćanje podataka");
             }
         };
 
         fetchData();
-    }, []);
+    }, [getAccessTokenSilently]);
 
     useEffect(() => {
         if (filter) {
